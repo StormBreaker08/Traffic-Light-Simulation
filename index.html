@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Traffic Light Simulator</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Simulation</title>
     <style>
-      .traffic-light {
-        width: 100px;
-        height: 300px;
-        border: 5px solid black;
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-      }
-      .light {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin: 10px;
-      }
-      .red {
-        background-color: red;
-      }
-      .yellow {
-        background-color: yellow;
-      }
-      .green {
-        background-color: green;
-      }
-      .head {
-        display: flex;
-        justify-content: center;
-      }
-      body{
-        align-items: center;
+        .traffic-light{
+            width: 100px;
+            height: 300px;
+            border:5px solid black;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+        body{
+            text-align: center;
+        }
+        .light{
+            height: 80px;
+            width: 80px;
+            margin: 10px;
+            border-radius: 50%;
+        }
     </style>
-  </head>
-  <body>
-    <div class="head">
-      <h1>Traffic Light Simulator</h1>
-    </div>
+</head>
+<body>
+    <h1>Traffic Light Simulation</h1>
     <div class="traffic-light">
-      <div class="light red"></div>
-      <div class="light yellow"></div>
-      <div class="light green"></div>
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
     </div>
     <script>
-      const redLight = document.querySelector(".red");
-      const yellowLight = document.querySelector(".yellow");
-      const greenLight = document.querySelector(".green");
-      function changeLights() {
-        setTimeout(() => {
-          redLight.style.backgroundColor = "red";
-          yellowLight.style.backgroundColor = "transparent";
-          greenLight.style.backgroundColor = "transparent";
-          setTimeout(() => {
-            redLight.style.backgroundColor = "transparent";
-            yellowLight.style.backgroundColor = "yellow";
-            greenLight.style.backgroundColor = "transparent";
-            setTimeout(() => {
-              redLight.style.backgroundColor = "transparent";
-              yellowLight.style.backgroundColor = "transparent";
-              greenLight.style.backgroundColor = "green";
-              changeLights();
-            }, 2000);
-          }, 1000);
-        }, 2000);
-      }
-      changeLights();
+        const redLight = document.querySelector('.red');
+        const yellowLight = document.querySelector('.yellow');
+        const greenLight = document.querySelector('.green');
+
+        function redlight(){
+            redLight.style.backgroundColor = 'red';
+            yellowLight.style.backgroundColor = 'transparent';
+            greenLight.style.backgroundColor = 'transparent';
+
+            setTimeout(yellowlight,50);
+        }
+        function yellowlight(){
+            redLight.style.backgroundColor = 'transparent';
+            yellowLight.style.backgroundColor = 'yellow';
+            greenLight.style.backgroundColor = 'transparent';
+
+            setTimeout(greenlight,50);
+        }
+        function greenlight(){
+            redLight.style.backgroundColor = 'transparent';
+            yellowLight.style.backgroundColor = 'transparent';
+            greenLight.style.backgroundColor = 'green';
+
+            setTimeout(redlight,50);
+        }
+
+        redlight();
     </script>
-  </body>
+</body>
 </html>
